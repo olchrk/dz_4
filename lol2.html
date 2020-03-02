@@ -1,0 +1,46 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <form name="form">
+            <input type="text" name="first_field">
+            <br>
+            <label for="add">add new field</label>
+            <input id="add" type="checkbox" name="check" value="add">
+            <br>
+            <br>
+            <button type="button" onClick="complete()">submit</button> 
+        </form>
+
+        <script> 
+
+        var checkbox = document.getElementById('add');
+        checkbox.addEventListener('change', function() {
+    if (checkbox.checked){
+        checkbox.insertAdjacentHTML('afterend', '<div id="two"> add another text <input type="text" name="second_field"></div>');
+    }
+    else{ 
+        var div = document.querySelector('#two');
+        div.remove(div.selectedIndex);
+    }})
+    
+  function complete () {
+  var input = document.getElementsByTagName('input'),
+    array = [];
+    function end () {
+    for (var i = 0; i < input.length; i++) {
+      array [i] = input[0].name + "=" +input[0].value,
+        if (checkbox.checked){ 
+        array[i] = input[1].name + "=" +input[1].value +
+            input[3].name + "=" +input[3].value;
+        }
+    }
+    alert(array);
+  }
+
+};
+
+        </script>
+    </body>
+</html>
